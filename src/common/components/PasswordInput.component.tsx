@@ -1,6 +1,6 @@
 import { useState, Dispatch, SetStateAction } from 'react';
 import { BiKey } from 'react-icons/bi';
-import { FaEye } from 'react-icons/fa';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 interface PasswordInputProps {
   password: string;
@@ -9,6 +9,7 @@ interface PasswordInputProps {
 
 const PasswordInput = ({ password, setPassword }: PasswordInputProps) => {
   const [showPassword, setShowPassword] = useState(false);
+  const Icone = showPassword ? FaEyeSlash : FaEye;
 
   return (
     <label>
@@ -21,12 +22,13 @@ const PasswordInput = ({ password, setPassword }: PasswordInputProps) => {
           value={password}
           type={showPassword ? 'text' : 'password'}
           spellCheck="false"
+          autoComplete="on"
         />
-        <BiKey size={18} className="text-dark absolute top-2.5 left-3" />
+        <BiKey size={18} className="text-dark-1 absolute top-2.5 left-3" />
         {password.length ? (
-          <FaEye
+          <Icone
             size={14}
-            className="text-dark cursor-pointer select-none absolute top-3 right-3"
+            className="text-dark-1 cursor-pointer select-none absolute top-3 right-3"
             onClick={() => setShowPassword(!showPassword)}
           />
         ) : null}

@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, SyntheticEvent } from 'react';
-import UsernameInput from './UsernameInput';
-import PasswordInput from './PasswordInput';
-import SubmitButton from './SubmitButton';
+import UsernameInput from './UsernameInput.component';
+import PasswordInput from './PasswordInput.component';
+import SubmitButton from './SubmitButton.component';
 
 interface LoginContainerProps {
   username: string;
@@ -23,10 +23,10 @@ const LoginContainer = ({
   failed,
 }: LoginContainerProps) => {
   return (
-    <div className="bg-dark px-8 py-10">
+    <div className="bg-dark-2 px-8 py-10">
       <div className="mb-6">
-        <h1 className="text-3xl text-white ">Acesso ao dashboard</h1>
-        <h2 className="text-md text-white font-light ">
+        <h1 className="text-3xl text-white">Acesso ao dashboard</h1>
+        <h2 className="text-md text-white font-light">
           Seja bem-vindo! Por favor, insira suas credenciais.
         </h2>
       </div>
@@ -38,7 +38,7 @@ const LoginContainer = ({
           <PasswordInput {...{ password, setPassword }} />
         </div>
         {failed && (
-          <p className="text-sm text-red font-medium mb-3 ">
+          <p className="text-sm text-error font-medium mb-3 ">
             Usuário ou senha incorretos.
           </p>
         )}

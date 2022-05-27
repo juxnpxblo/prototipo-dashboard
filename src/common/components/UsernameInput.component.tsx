@@ -20,7 +20,7 @@ const UsernameInput = ({ username, setUsername }: UsernameInputProps) => {
           spellCheck="false"
           autoFocus
         />
-        <FaUser size={14} className="text-dark absolute top-2.5 left-3" />
+        <FaUser size={14} className="text-dark-1 absolute top-2.5 left-3" />
       </div>
     </label>
   );

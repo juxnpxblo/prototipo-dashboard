@@ -13,8 +13,26 @@
   }
 }
 
+:root {
+  --main-bg-color: brown;
+  --light: #e9e9e9;
+  --dark-1: #292929;
+  --dark-2: #393939;
+  --orange-1: #ffa872;
+  --orange-2: #e25600;
+  --orange-3: #d15609;
+  --open-1: #ff404059;
+  --open-2: #ff0000;
+  --pending-1: #ffee547a;
+  --pending-2: #ffb800;
+  --closed-1: #8bff787a;
+  --closed-2: #00e309;
+  --error: #fa3333;
+}
+
 html {
   height: 100%;
+  background-color: var(--dark-1);
 }
 
 body {
@@ -36,8 +54,8 @@ input::placeholder {
 
 /* Signing in animation (original snippet taken from W3Schools) */
 .loader {
-  border: 2px solid #f3f3f3;
-  border-top: 2px solid #393939;
+  border: 2px solid var(--light);
+  border-top: 2px solid var(--dark-2);
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -50,4 +68,66 @@ input::placeholder {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* Tables */
+.table-1,
+.table-2 {
+  background-color: var(--orange-2);
+  color: var(--light);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  width: 100%;
+}
+.table-1 {
+  text-align: center;
+}
+.table-1 th {
+  border-width: 1px;
+  border-color: var(--dark-2);
+  border-collapse: collapse;
+  font-weight: 700;
+  padding: 10px;
+}
+.table-1 td {
+  border-width: 1px;
+  border-color: var(--dark-2);
+  border-collapse: collapse;
+  position: relative;
+  padding: 10px;
+}
+
+.table-2 {
+  text-align: left;
+}
+.table-2 th:first-child {
+  padding-left: 1.5rem;
+}
+.table-2 th {
+  font-weight: 600;
+  padding: 12px 0px;
+}
+.table-2 tbody {
+  background-color: var(--dark-2);
+  font-size: 0.875rem;
+}
+.table-2 tr {
+  border-color: var(--dark-1);
+  border-bottom-width: 1px;
+  border-collapse: collapse;
+}
+.table-2 td:first-child {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-left: 1.5rem;
+}
+.table-2 td:last-child {
+  padding-right: 1.5rem;
+}
+.table-2 td {
+  position: relative;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }

@@ -5,8 +5,8 @@ import {
   Dispatch,
   SetStateAction,
 } from 'react';
-import EmptyGrayContainer from '../components/EmptyGrayContainer';
-import LoginContainer from '../components/LoginContainer';
+import EmptyGrayContainer from '../common/components/EmptyGrayContainer.component';
+import LoginContainer from '../common/components/LoginContainer.component';
 
 interface LoginProps {
   setAuthenticated: Dispatch<SetStateAction<boolean>>;
@@ -22,7 +22,27 @@ const Login = ({ setAuthenticated }: LoginProps) => {
     document.title = 'Dashboard • Login';
   }, []);
 
-  const onSubmit = (e: SyntheticEvent) => {
+  return (
+    <div className="h-full flex flex-col">
+      <EmptyGrayContainer />
+      <div className="grow flex items-center justify-center">
+        <LoginContainer
+          {...{
+            username,
+            setUsername,
+            password,
+            setPassword,
+            onSubmit,
+            signingIn,
+            failed,
+          }}
+        />
+      </div>
+      <EmptyGrayContainer />
+    </div>
+  );
+
+  function onSubmit(e: SyntheticEvent) {
     e.preventDefault();
 
     if (!username.length || !password.length || signingIn) return;
@@ -39,27 +59,7 @@ const Login = ({ setAuthenticated }: LoginProps) => {
         setFailed(true);
       }
     }, 2000);
-  };
-
-  return (
-    <div className="h-full flex flex-col">
-      <EmptyGrayContainer />
-      <div className="bg-bg-1 grow flex items-center justify-center">
-        <LoginContainer
-          {...{
-            username,
-            setUsername,
-            password,
-            setPassword,
-            onSubmit,
-            signingIn,
-            failed,
-          }}
-        />
-      </div>
-      <EmptyGrayContainer />
-    </div>
-  );
+  }
 };
 
 export default Login;
